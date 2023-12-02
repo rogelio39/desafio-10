@@ -9,6 +9,7 @@ import MongoStore from 'connect-mongo';
 import cors from 'cors';
 //rutas de db
 import router from './routes/index.routes.js';
+import compression from 'express-compression';
 
 
 
@@ -70,6 +71,8 @@ mongoose.connect(process.env.MONGO_URL)
 
 
 
+    app.use(compression());
+
 //db routes
 app.use('/', router);
 
@@ -78,6 +81,8 @@ app.use('/', router);
 app.listen(PORT, () => {
     console.log(`server on PORT ${PORT}`)
 })
+
+
 
 
 
