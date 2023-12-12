@@ -5,6 +5,7 @@ import userRouter from './users.routes.js';
 import sessionRouter from './session.routes.js';
 import checkoutRouter from "./checkout.routes.js";
 import nodemailerRouter from "./nodemailer.routes.js";
+import errorRouter from "./error.routes.js";
 
 
 const router = Router();
@@ -15,6 +16,7 @@ router.use('/api/carts', cartRouter);
 router.use('/api/sessions', sessionRouter);
 router.use('/api/checkout', checkoutRouter);
 router.use('/api/mail', nodemailerRouter);
+router.use('/api/errors', errorRouter);
 
 
 

@@ -10,6 +10,7 @@ import cors from 'cors';
 //rutas de db
 import router from './routes/index.routes.js';
 import compression from 'express-compression';
+import { addLogger } from './config/logger.js';
 
 
 
@@ -20,7 +21,7 @@ const PORT = 4000;
 const app = express();
 
 
-const whiteList = ['http://192.168.100.243:5173']
+const whiteList = ['http://192.168.100.3:5173']
 
 
 const corsOptions = {
@@ -71,10 +72,12 @@ mongoose.connect(process.env.MONGO_URL)
 
 
 
-    app.use(compression());
+app.use(compression());
+app.use(addLogger);
 
 //db routes
 app.use('/', router);
+
 
 
 
